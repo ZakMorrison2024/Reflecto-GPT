@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, send_file
 from fpdf import FPDF
 import random
+import openai
 
 app = Flask(__name__)
 # Initialize OpenAI API
@@ -49,7 +50,7 @@ def ask_random_question():
     available_questions = list(set(questions) - set(session['asked_questions']))
     if not available_questions:
         return None
-    question = random.choice(available_questions)
+    question = random.sample(available_questions)
     session['asked_questions'].append(question)
     session['asked_count'] += 1
     return question
@@ -101,8 +102,10 @@ def summary():
             engine="gpt-4", prompt=prompt, max_tokens=700, temperature=0.7
         )
         summary = response.choices[0].text.strip()
-    except Exception as e:
-        summary = f"Error generating summary: {str(e)}"
+   except Exception as e:
+    summary = f"Error generating summary: {str(e)}"
+    print(f"Error: {e}")  # For logging purposes
+
 
     session['summary'] = summary
     return render_template('summary.html', summary=summary)
@@ -124,11 +127,10 @@ def download_pdf():
     for line in summary.split('\n'):
         pdf.multi_cell(0, 10, line)
 
-    pdf.drawText(text)
-
     file_path = "character_portfolio.pdf"
     pdf.output(file_path)
     return send_file(file_path, as_attachment=True)
+    session.clear()
 
 if __name__ == "__main__":
     app.run(debug=True)
