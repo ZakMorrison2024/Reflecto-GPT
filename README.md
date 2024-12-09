@@ -44,17 +44,6 @@ Open your browser and go to:
 http://127.0.0.1:5000/  
 
 
-Contributing
-Fork the repository.
-Create a feature branch (git checkout -b feature-branch).
-Commit your changes (git commit -m 'Add a new feature').
-Push to the branch (git push origin feature-branch).
-Open a pull request.
-License
-This project is licensed under the MIT License.
-
-
-
 Acknowledgments
 Inspired by the need for deeper self-awareness and personal growth.
 Developed with Flask and FPDF for seamless web integration and PDF generation.
