@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Character Portfolio Builder</h1>
+        <p class="question">{{ question }}</p>
+        <form method="post" action="{{ url_for('submit_response') }}">
+            <textarea name="response" placeholder="Type your answer here..." required></textarea>
+            <button type="submit" class="button">Submit</button>
+        </form>
+        <div class="progress">
+            <p>Question {{ session['asked_count'] }} of {{ session['total_questions'] }}</p>
+        </div>
+    </div>
+</body>
+</html>
