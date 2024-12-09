@@ -1,4 +1,8 @@
 Reflecto-GPT: Personality and Psychometrics GPT System
+
+
+
+
 Description
 Reflecto-GPT is an intuitive, web-based system designed to help users explore their personality, values, and habits through guided introspection. By answering a series of reflective questions, users can generate a detailed personal portfolio, complete with personality insights. The system creates a calming environment with a sleek gradient design and allows users to download their customized portfolios as a PDF.
 
