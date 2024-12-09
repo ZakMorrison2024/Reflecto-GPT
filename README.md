@@ -44,23 +44,6 @@ Open your browser and go to:
 http://127.0.0.1:5000/  
 
 
-
-
-Folder Structure
-
-
-reflecto-gpt/
-│
-├── app.py                  # Backend logic for Flask application
-├── templates/              # HTML templates
-│   ├── index.html          # Main question interface
-│   └── summary.html        # Summary and download page
-├── static/                 # Static files (CSS, images, etc.)
-│   └── style.css           # Styling for the web app
-└── character_portfolio.pdf # Generated portfolio (example output)
-
-
-
 Contributing
 Fork the repository.
 Create a feature branch (git checkout -b feature-branch).
