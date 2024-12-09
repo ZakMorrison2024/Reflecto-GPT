@@ -122,7 +122,7 @@ def download_pdf():
         pdf.ln(5)
         
     for line in summary.split('\n'):
-        text.textLine(line)
+        pdf.multi_cell(0, 10, line)
 
     pdf.drawText(text)
 
