@@ -3,7 +3,8 @@ from fpdf import FPDF
 import random
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"  # Replace with a secure key
+# Initialize OpenAI API
+openai.api_key = 'your-openai-api-key-here'
 
 # Questions pool
 questions = [
@@ -73,10 +74,42 @@ def submit_response():
 
 @app.route('/summary')
 def summary():
-    return render_template('summary.html', responses=session.get('responses', []))
+    responses = session.get('responses', [])
+    if not responses:
+        return redirect(url_for('home'))
+
+    portfolio_text = "\n".join(
+        f"Q: {q}\nA: {a}" for q, a in zip(session['asked_questions'], responses)
+    )
+    prompt = f"""
+    Create a character portfolio summary based on the following data:
+
+    {portfolio_text}
+
+    Summarize the insights into personality traits, values, habits, and life perspective. 
+    Include the following metrics:
+    - Predicted Emotional Quotient (EQ) score
+    - Predicted Intelligence Quotient (IQ) score
+    - Big Five personality traits (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism)
+    - Myers-Briggs Type Indicator (MBTI) personality type
+    - Strengths and challenges based on the answers provided
+
+    Format the summary in a well-organized, user-friendly, and readable manner with clear headings and bullet points for each metric.
+    """
+    try:
+        response = openai.Completion.create(
+            engine="gpt-4", prompt=prompt, max_tokens=700, temperature=0.7
+        )
+        summary = response.choices[0].text.strip()
+    except Exception as e:
+        summary = f"Error generating summary: {str(e)}"
+
+    session['summary'] = summary
+    return render_template('summary.html', summary=summary)
 
 @app.route('/download')
 def download_pdf():
+    summary = session.get('summary', "No summary available.")
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
@@ -87,6 +120,11 @@ def download_pdf():
         pdf.set_font("Arial", size=10)
         pdf.multi_cell(0, 10, f"Q: {entry['question']}\nA: {entry['response']}\n")
         pdf.ln(5)
+        
+    for line in summary.split('\n'):
+        text.textLine(line)
+
+    pdf.drawText(text)
 
     file_path = "character_portfolio.pdf"
     pdf.output(file_path)
