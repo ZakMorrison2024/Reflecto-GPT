@@ -1,4 +1,4 @@
-Reflecto-GPT: Personality and Psychometrics GPT System
+#Reflecto-GPT: Personality and Psychometrics GPT System
 
 
 
@@ -9,18 +9,18 @@ YOU WILL NEED YOUR OWN OPENAI API KEY
 
 
 
-Description
+## Description
 Reflecto-GPT is an intuitive, web-based system designed to help users explore their personality, values, and habits through guided introspection. By answering a series of reflective questions, users can generate a detailed personal portfolio, complete with personality insights. The system creates a calming environment with a sleek gradient design and allows users to download their customized portfolios as a PDF.
 
 This app is perfect for individuals seeking self-awareness, self-improvement, or simply a better understanding of their character.
 
-Features
+## Features
 Thoughtful Questions: A curated set of reflective and psychometric questions to explore your personality and habits.
 Personalized Portfolio: Generates a detailed, downloadable portfolio summarizing your responses.
 Elegant UI: A clean, calming interface with gradient background for a stress-free experience.
 PDF Download: Easily download your character portfolio for future reference or sharing.
 
-Metrics::
+## Metrics
 - Summary of Predicted personality traits, values, habits, and life perspective 
 - Predicted Emotional Quotient (EQ) score
 - Predicted Intelligence Quotient (IQ) score
@@ -29,7 +29,7 @@ Metrics::
 - And assumes strengths and challenges based on the answers provided
 
 
-Installation Guide
+##Installation Guide
 Prerequisites
 Python 3.8 or later
 PIP (Python Package Installer)
