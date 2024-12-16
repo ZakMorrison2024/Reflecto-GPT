@@ -28,7 +28,7 @@ Metrics::
 - Guesses Myers-Briggs Type Indicator (MBTI) personality type
 - And assumes strengths and challenges based on the answers provided
 
-    Format the summary in a well-organized, user-friendly, and readable manner with clear headings and bullet points for each metric.
+
 Installation Guide
 Prerequisites
 Python 3.8 or later
