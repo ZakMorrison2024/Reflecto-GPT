@@ -20,7 +20,15 @@ Personalized Portfolio: Generates a detailed, downloadable portfolio summarizing
 Elegant UI: A clean, calming interface with gradient background for a stress-free experience.
 PDF Download: Easily download your character portfolio for future reference or sharing.
 
+Metrics::
+- Summary of Predicted personality traits, values, habits, and life perspective 
+- Predicted Emotional Quotient (EQ) score
+- Predicted Intelligence Quotient (IQ) score
+- predicts Big Five personality traits (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism)
+- Guesses Myers-Briggs Type Indicator (MBTI) personality type
+- And assumes strengths and challenges based on the answers provided
 
+    Format the summary in a well-organized, user-friendly, and readable manner with clear headings and bullet points for each metric.
 Installation Guide
 Prerequisites
 Python 3.8 or later
